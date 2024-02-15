@@ -8,29 +8,24 @@ argocd:
     name: argocd-svc
     port: 80
     targetPort: 8080
-  application:
-    name: "was"
-    namespace: "argocd"
-    lastAppliedConfiguration:
-      apiVersion: "argoproj.io/v1alpha1"
-      kind: "Application"
-      metadata:
-        name: "was"
-        namespace: "argocd"
-      spec:
-        destination:
-          namespace: "default"
-          server: "https://kubernetes.default.svc"
-        project: "default"
-        source:
-          kustomize:
-            namespace: "default"
-          path: "was"
-          repoURL: "https://github.com/claire-eee/meju-test.git"
-          targetRevision: "HEAD"
-        syncPolicy:
-          automated:
-            selfHeal: true
+    
+application:
+  name: "was"
+  namespace: "argocd"
+  destination:
+    namespace: "default"
+    server: "https://kubernetes.default.svc"
+  project: "default"
+  source:
+    path: "was"
+    repoURL: "https://github.com/claire-eee/meju-test.git"
+    targetRevision: "HEAD"
+    kustomize:
+      namePrefix: "" # 필요한 경우 여기를 수정
+  syncPolicy:
+    automated:
+      selfHeal: true
+
           
 
 ingress:

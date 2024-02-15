@@ -1,22 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.argocd.application.name }}
-  namespace: {{ .Values.argocd.application.namespace }}
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {{ toJson .Values.argocd.application.lastAppliedConfiguration | indent 6 }}
+  name: {{ .Values.application.name }}
+  namespace: {{ .Values.application.namespace }}
 spec:
   destination:
-    namespace: {{ .Values.argocd.application.spec.destination.namespace }}
-    server: {{ .Values.argocd.application.spec.destination.server }}
-  project: {{ .Values.argocd.application.spec.project }}
+    namespace: {{ .Values.application.destination.namespace }}
+    server: {{ .Values.application.destination.server }}
+  project: {{ .Values.application.project }}
   source:
+    path: {{ .Values.application.source.path }}
+    repoURL: {{ .Values.application.source.repoURL }}
+    targetRevision: {{ .Values.application.source.targetRevision }}
     kustomize:
-      namespace: {{ .Values.argocd.application.spec.source.kustomize.namespace }}
-    path: {{ .Values.argocd.application.spec.source.path }}
-    repoURL: {{ .Values.argocd.application.spec.source.repoURL }}
-    targetRevision: {{ .Values.argocd.application.spec.source.targetRevision }}
+      namePrefix: {{ .Values.application.source.kustomize.namePrefix | default "" }}
   syncPolicy:
     automated:
-      selfHeal: {{ .Values.argocd.application.spec.syncPolicy.automated.selfHeal }}
+      selfHeal: {{ .Values.application.syncPolicy.automated.selfHeal }}
