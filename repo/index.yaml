@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  argocd-mejju:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-02-15T16:55:42.861223+09:00"
+    description: A Helm chart for Kubernetes
+    digest: a85486ecf01562834863fe31fd2507469249d982538aab1290455556c77607a0
+    name: argocd-mejju
+    type: application
+    urls:
+    - argocd-mejju-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-02-15T16:55:42.861223+09:00"
