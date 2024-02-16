@@ -33,14 +33,7 @@ ingress:
     name: argocd-ingress
     namespace: argocd
     annotations:
-      targetType: "ip"
-      scheme: "internet-facing"
-      listenPorts: '[{"HTTP": 80}, {"HTTPS": 443}]'
-      certificateArn: "arn:aws:acm:ap-northeast-2:261595668962:certificate/fc29e6b8-016a-4b56-a413-70e7262fa16d"
-      sslRedirect: "443"
-      healthcheckPath: "/"
-      healthcheckProtocol: "HTTP"
-      successCodes: "200"
+      certificatearn: "arn:aws:acm:ap-northeast-2:261595668962:certificate/fc29e6b8-016a-4b56-a413-70e7262fa16d"
     ingressClassName: "alb"
     host: "argocd.jm.busan.kr"
     path: "/"

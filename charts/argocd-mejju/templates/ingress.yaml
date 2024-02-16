@@ -4,16 +4,16 @@ metadata:
   name: {{ .Values.ingress.argocd.name }}
   namespace: {{ .Values.ingress.argocd.namespace }}
   annotations:
-    alb.ingress.kubernetes.io/target-type: {{ .Values.ingress.argocd.annotations.targetType }}
-    alb.ingress.kubernetes.io/scheme: {{ .Values.ingress.argocd.annotations.scheme }}
-    alb.ingress.kubernetes.io/listen-ports: {{ .Values.ingress.argocd.annotations.listenPorts }}
-    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.argocd.annotations.certificateArn }}
-    alb.ingress.kubernetes.io/ssl-redirect: {{ .Values.ingress.argocd.annotations.sslRedirect }}
-    alb.ingress.kubernetes.io/healthcheck-path: {{ .Values.ingress.argocd.annotations.healthcheckPath }}
-    alb.ingress.kubernetes.io/healthcheck-protocol: {{ .Values.ingress.argocd.annotations.healthcheckProtocol }}
-    alb.ingress.kubernetes.io/success-codes: {{ .Values.ingress.argocd.annotations.successCodes }}
+    alb.ingress.kubernetes.io/target-type: "ip"
+    alb.ingress.kubernetes.io/scheme: "internet-facing"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.argocd.annotations.certificatearn }}
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+    alb.ingress.kubernetes.io/healthcheck-path: "/"
+    alb.ingress.kubernetes.io/healthcheck-protocol: "HTTP"
+    alb.ingress.kubernetes.io/success-codes: "200"
 spec:
-  ingressClassName: {{ .Values.ingress.argocd.ingressClassName }}
+  ingressClassName: "alb"
   rules:
     - host: {{ .Values.ingress.argocd.host }}
       http:
