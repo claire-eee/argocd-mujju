@@ -18,7 +18,7 @@ application:
   project: "default"
   source:
     path: "was"
-    repoURL: "https://github.com/claire-eee/meju-test.git"
+    repoURL: "https://github.com/JongDo737/Meju-Terraform.git"
     targetRevision: "HEAD"
     kustomize:
       namespace: "default"
