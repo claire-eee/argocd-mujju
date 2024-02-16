@@ -4,8 +4,8 @@ metadata:
   name: {{ .Values.ingress.argocd.name }}
   namespace: {{ .Values.ingress.argocd.namespace }}
   annotations:
-    alb.ingress.kubernetes.io/target-type: "ip"
-    alb.ingress.kubernetes.io/scheme: "internet-facing"
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.argocd.annotations.certificatearn }}
     alb.ingress.kubernetes.io/ssl-redirect: "443"
@@ -13,7 +13,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-protocol: "HTTP"
     alb.ingress.kubernetes.io/success-codes: "200"
 spec:
-  ingressClassName: "alb"
+  ingressClassName: alb
   rules:
     - host: {{ .Values.ingress.argocd.host }}
       http:
