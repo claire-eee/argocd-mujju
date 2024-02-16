@@ -21,7 +21,7 @@ application:
     repoURL: "https://github.com/claire-eee/meju-test.git"
     targetRevision: "HEAD"
     kustomize:
-      namePrefix: "" # 필요한 경우 여기를 수정
+      namespace: "default"
   syncPolicy:
     automated:
       selfHeal: true
@@ -34,7 +34,6 @@ ingress:
     namespace: argocd
     annotations:
       certificatearn: "arn:aws:acm:ap-northeast-2:261595668962:certificate/fc29e6b8-016a-4b56-a413-70e7262fa16d"
-    ingressClassName: "alb"
     host: "argocd.jm.busan.kr"
     path: "/"
     backend:
