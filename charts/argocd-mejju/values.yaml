@@ -8,24 +8,6 @@ argocd:
     name: argocd-svc
     port: 80
     targetPort: 8080
-    
-application:
-  name: "was"
-  namespace: "argocd"
-  destination:
-    namespace: "default"
-    server: "https://kubernetes.default.svc"
-  project: "default"
-  source:
-    path: "was"
-    repoURL: "https://github.com/JongDo737/Meju-Terraform.git"
-    targetRevision: "HEAD"
-    kustomize:
-      namespace: "default"
-  syncPolicy:
-    automated:
-      selfHeal: true
-
           
 
 ingress:
