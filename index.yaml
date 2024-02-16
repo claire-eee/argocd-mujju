@@ -2,10 +2,10 @@ apiVersion: v1
 entries:
   argocd-mejju:
   - apiVersion: v2
-    created: "2024-02-16T09:39:30.262610862Z"
-    digest: cd6dcbf34b8befcf4951b11839d1f342ce9433a72d3629e25a73ed005bb83207
+    created: "2024-02-16T09:56:02.626087131Z"
+    digest: 5ab03274e3e0efacbc6149fffbca14095d64635ff58b798519aabd4f57e07d15
     name: argocd-mejju
     urls:
     - https://claire-eee.github.io/argocd-mujju/argocd-mejju-1.0.0.tgz
     version: 1.0.0
-generated: "2024-02-16T09:39:30.26168001Z"
+generated: "2024-02-16T09:56:02.625694821Z"
